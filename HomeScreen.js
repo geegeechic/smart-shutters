@@ -1,33 +1,36 @@
-import React from 'react';
-//import react in our code.
 
-import { Text, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
+
+import React from 'react';
+import { Divider } from 'react-native-elements';
+import { Text, View, TouchableHighlight, StyleSheet } from 'react-native';
+import ListItems from './ListItems';
+
 //import all the basic component we have used
- 
+
+
 export default class HomeScreen extends React.Component {
-  //Home Screen to show in Home Option
+
 
   render() {
     return (
-      
       <View style={styles.screen}>
-        <Text style={{ marginTop: 50, fontSize: 25 }}> No Shutters Added Yet </Text>
-        <View style={styles.container}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => this.props.navigation.navigate('AddShutter')}>
-            <Text>Add Shutter</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
+        <Text style={styles.label}>
+          Shutters
+        </Text>
+        <ListItems style={styles.list}/>
+        <Divider style={{ backgroundColor: 'black', height: 2 }}/>
+        <Text style={styles.label}>
+          Groups
+        </Text>
+        <View style={styles.buttonContainer}>
+          <TouchableHighlight
             style={styles.button}
             onPress={() => this.props.navigation.navigate('Group')}>
-            <Text>Create Group </Text>
-          </TouchableOpacity>
-
-        <Image style={styles.logo} source={require('./assets/Logo.png')} />
+            <Text style= {styles.text}>
+              Create Group
+            </Text>
+          </TouchableHighlight>
         </View>
-        
       </View>
     );
   }
@@ -38,20 +41,28 @@ const styles = StyleSheet.create({
     justifyContent: 'center',  
   },
   screen: {
-    flex: 1, 
+    flex: 1,
+    flexDirection: 'column', 
     justifyContent: 'center', 
-    alignItems: 'center',
+    backgroundColor: 'white',
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#DDDDDD',
+    backgroundColor: '#3e68f0',
     padding: 10,
-    width: 300,
+    width: 200,
     marginTop: 16,
+    marginBottom: 50,
   },
-  logo: {
-    height: 180,
-    width: 180,
-    margin: 60,
+  buttonContainer: {
+    alignItems: 'center',
+  },
+  text: {
+    color: 'white',
+  },
+  label: {
+    color: 'black',
+    fontSize: 25,
+    fontWeight: 'bold',
   },
 });

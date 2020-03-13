@@ -5,14 +5,14 @@ import { Divider } from 'react-native-elements';
 import { Text, View, TouchableHighlight, StyleSheet } from 'react-native';
 import ListItems from './ListItems';
 
-//import all the basic component we have used
 
 
 export default class HomeScreen extends React.Component {
-
-
+  
+  
   render() {
     return (
+
       <View style={styles.screen}>
         <Text style={styles.label}>
           Shutters
@@ -32,6 +32,7 @@ export default class HomeScreen extends React.Component {
           </TouchableHighlight>
         </View>
       </View>
+
     );
   }
 }
